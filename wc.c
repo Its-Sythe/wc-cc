@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 int main(int argc, char *argv[]) {
     char *command = argv[1];
@@ -19,7 +20,9 @@ int main(int argc, char *argv[]) {
                         count++;
                     }
                 } else if (strcmp(command, "-w") == 0) {
-                    if (ch - 1 == ' ' && ch== ' ') {
+                    int inWord = 0;
+
+                    if (ch == ' ' || isdigit(ch)) {
                         count++;
                     }
                 }
