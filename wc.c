@@ -16,17 +16,21 @@ int main(int argc, char *argv[]) {
                 if (strcmp(command, "-c") == 0) {
                     count ++;
                 } else if (strcmp(command, "-l") == 0) {
-                    if (ch == '\n') {
-                        count++;
-                    }
-                } else if (strcmp(command, "-w") == 0) {
-                    int inWord = 0;
-
-                    if (ch == ' ' || isdigit(ch)) {
-                        count++;
-                    }
-                }
-            }
+			if (ch == '\n') {
+				count++;
+			}
+		} else if (strcmp(command, "-w") == 0) {
+			int inword = 0;
+			if (!isspace(ch)) {
+				if (!inword) {
+					count++;
+					inword = 1;
+				}
+			} else {
+				inword = 0;
+			}
+		}
+	    }
             printf("%d\n", count);
         }
     }
